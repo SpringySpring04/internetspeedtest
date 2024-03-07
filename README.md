@@ -1,5 +1,10 @@
 # Internet Speed Test in JS/HTML/CSS
 
+## Description
+
+This is a (can be a?) (localhost) web app that will test the speed of your network connection and give you a few statistics,
+including final download speed, average download speed, and time elapsed.
+
 Note that this does require an internet connection (of course).
 
 ## Dependencies
