@@ -12,7 +12,9 @@ Note that this does require an internet connection (of course).
     * none
 
 If you want to fork/develop this project further, clone it or download the repository onto your system, and then you can install all (missing) dependencies with `npm install` in the command line in the same directory as `package.json`. The project is configured to run in Visual Studio Code, so if you have it, you can start the program using the configurations specified in `.vscode/launch.json` with `Run > Start Debugging` (F5).
+
 Note that if you make changes to the source file(s) in `src` you will need to end debugging to close the live server from `browser-sync` and then start debugging again to see changes, because that will rebuild `bin/bundle.js`. Or you can just run `browserify ./src/main.js -o ./bin/bundle.js` in the terminal.
+
 Because this project uses browserify, you can use nodejs' `require` functionality to modularize your web app source code, so you can take advantage of that
 
 ## How to use
