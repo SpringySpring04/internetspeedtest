@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+button {
+    background-color: navy;
+    color: white;
+}
+
+.timedisplay {
+    color: red
+}
+
+.speeddisplay {
+    color: #000099
+}

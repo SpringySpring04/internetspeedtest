@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Internet Speed Test</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <script type="text/javascript">
+    /** CONFIGURATION SETUP */
+    var testActive = false;
+    const fileUrl = "https://getsamplefiles.com/download/wav/sample-1.wav";
+
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
+    }
+
+    const cfg = {
+        average_download_speed_update_interval: 0.1
+    };
+
+    function avg_update_interval_change() {
+        if (testActive == true) return;
+        let slider = document.getElementById('avg_update_slider');
+        cfg.average_download_speed_update_interval = Math.round(lerp(0.1, 0.5, slider.value / 100) * 100) / 100;
+        document.getElementById('avg_spd').textContent = '' + cfg.average_download_speed_update_interval;
+    }
+
+  </script>
+
+  <body style="margin: 12%;">
+
+    <p>Average Download Speed Update Interval (lower values are more accurate, but may eat up more memory. Higher values are less memory-intensive, but may be less accurate.)</p>
+    <input type="range" id="avg_update_slider" onchange="avg_update_interval_change()"/>
+    <p>
+        This test measures the current download speed and an estimated average throughout the whole test.
+    </p>
+    <p>
+        The average samples values once every <span id="avg_spd" class="timedisplay"></span> seconds to reduce memory usage.
+    </p>
+    <p>
+        This test works by checking the download speed for your network when downloading from the following link:
+        <br>
+        <a id="fileUrlA">text</a>
+    </p>
+    
+    <button id="testButton">Start speed test</button>
+    <p>Current Download: <span id="dnld-spd" class="speeddisplay">0.00</span> MiB/s</p>
+    <p>Average Download: <span id="dnld-avg" class="speeddisplay">0.00</span> Mib/s</p>
+    <p>Elapsed Time: <span id="elapsed-time" class="timedisplay">0.00</span> sec</p>
+    <p>Result: <span id="result">[Test not started yet]</span></p>
+
+    <script type="text/javascript">
+        avg_update_interval_change();
+        document.getElementById('avg_spd').textContent = '' + cfg.average_download_speed_update_interval;
+        document.getElementById('fileUrlA').setAttribute('href', fileUrl);
+        document.getElementById('fileUrlA').textContent = fileUrl;
+        
+    </script>
+    <script type="text/javascript" src="bin/bundle.js"></script>
+  </body>
+</html>

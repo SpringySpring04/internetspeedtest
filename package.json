@@ -1,0 +1,20 @@
+{
+  "name": "internetspeedtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run-p start-compile start-run",
+    "start-compile": "browserify ./src/main.js -o ./bin/bundle.js",
+    "start-run": "browser-sync start --server -w --files=[\"${workspaceFolder}/assets/\"]"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "browserify": "^17.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
